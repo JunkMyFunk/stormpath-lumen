@@ -23,8 +23,8 @@
         "php": ">=5.5",
         "stormpath/sdk": "~1.14",
         "illuminate/support": "~5.2",
-        "bretterer/iso_duration_converter": "^0.1.0"
-        "illuminate/cookie": "~5.2",
+        "bretterer/iso_duration_converter": "^0.1.0",
+        "illuminate/cookie": "~5.2"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
