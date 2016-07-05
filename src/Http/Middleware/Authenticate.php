@@ -82,9 +82,6 @@ class Authenticate
     }
 
     public function refreshTokens(Request $request) {
-        if ($request->wantsJson()) {
-            return false;
-        }
 
         try {
             $spApplication = app('stormpath.application');
@@ -123,16 +120,13 @@ class Authenticate
     private function setNewAccessToken($request, $cookies)
     {
         $this->cookieJar->queue(
-            cookie(
-                config('stormpath.web.accessTokenCookie.name'),
-                $cookies->getAccessTokenString(),
-                $cookies->getExpiresIn(),
-                config('stormpath.web.accessTokenCookie.path'),
-                config('stormpath.web.accessTokenCookie.domain'),
-                config('stormpath.web.accessTokenCookie.secure'),
-                config('stormpath.web.accessTokenCookie.httpOnly')
-            )
-
+            config('stormpath.web.accessTokenCookie.name'),
+            $cookies->getAccessTokenString(),
+            $cookies->getExpiresIn(),
+            config('stormpath.web.accessTokenCookie.path'),
+            config('stormpath.web.accessTokenCookie.domain'),
+            config('stormpath.web.accessTokenCookie.secure'),
+            config('stormpath.web.accessTokenCookie.httpOnly')
         );
 
 

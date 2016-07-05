@@ -98,5 +98,5 @@ if (config('stormpath.web.oauth2.enabled')) {
  |--------------------------------------------------------------------------
  */
 if (config('stormpath.web.me.enabled')) {
-    $this->app->get(config('stormpath.web.me.uri'), ['as' => 'stormpath.me', 'uses' => 'Stormpath\Lumen\Http\Controllers\MeController@getMe']);
+    $this->app->get(config('stormpath.web.me.uri'), ['as' => 'stormpath.me', 'uses' => 'Stormpath\Lumen\Http\Controllers\MeController@getMe', 'middleware' => 'stormpath.auth']);
 }
